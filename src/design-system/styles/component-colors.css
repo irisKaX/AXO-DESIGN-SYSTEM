@@ -1,0 +1,105 @@
+/* Shared color-only adapter for radix-nova. Theme-specific interaction roles
+   keep one set of rules and preserve the approved Dark appearance. */
+:root {
+  /* The shared Button class also survives asChild composition/portal slots. */
+  /* Use exact semantic interaction colors instead of alpha-tinted accents. */
+  :is([class~='group/button'], a[data-slot='badge'])[data-variant='default']:hover {
+    background-color: var(--axo-color-primary-hover);
+  }
+
+  :is([class~='group/button'], a[data-slot='badge'])[data-variant='default']:active {
+    background-color: var(--axo-color-primary-pressed);
+  }
+
+  a[data-slot='badge'][data-variant='secondary']:hover {
+    background-color: var(--axo-interaction-secondary-hover-background);
+  }
+
+  /* A fill accent and a readable small-text accent have different roles. */
+  :is([class~='group/button'], [data-slot='badge'])[data-variant='link'],
+  [data-slot='field-description'] a:hover {
+    color: var(--axo-color-primary-text);
+  }
+
+  /* Keep input backgrounds independent of their accessible boundary color. */
+  :is([data-slot='input'], [data-slot='textarea'], [data-slot='select-trigger'],
+      [data-slot='native-select'], [data-slot='input-group'], [data-slot='combobox-chips']) {
+    background-color: var(--axo-color-surface-inset);
+  }
+
+  :is([data-slot='select-trigger'], [data-slot='native-select']):hover {
+    background-color: var(--axo-interaction-hover-background);
+  }
+
+  :is([data-slot='input'], [data-slot='textarea'], [data-slot='select-trigger'],
+      [data-slot='native-select']):disabled,
+  [data-slot='input-group']:has(:disabled) {
+    color: var(--axo-color-disabled-text);
+    background-color: var(--axo-color-disabled-bg);
+  }
+
+  /* Do not tint empty checkbox/radio interiors with the brighter input border. */
+  :is([data-slot='checkbox'], [data-slot='radio-group-item']):not([data-state='checked']) {
+    background-color: var(--axo-color-surface-inset);
+  }
+
+  /* Text roles are contrast-safe in each theme; the accent remains red-500. */
+  .text-destructive,
+  [data-slot='field'][data-invalid='true'] {
+    color: var(--axo-color-danger-text);
+  }
+
+  [data-slot][aria-invalid='true'],
+  :is([data-slot='input-group'], [data-slot='combobox-chips']):has([aria-invalid='true']) {
+    border-color: var(--axo-color-danger-text);
+    --tw-ring-color: var(--axo-color-danger-text);
+  }
+
+  /* Shared destructive surfaces always pair their status foreground and soft. */
+  :is([class~='group/button'], [data-slot='badge'])[data-variant='destructive'],
+  [data-slot='alert'].text-destructive {
+    --destructive: var(--axo-color-danger-foreground);
+    color: var(--axo-color-danger-foreground);
+    background-color: var(--axo-color-danger-soft);
+    border-color: var(--axo-color-danger-border);
+  }
+
+  [data-slot='alert'].text-destructive [data-slot='alert-description'] {
+    color: var(--axo-color-danger-foreground);
+  }
+
+  :is([class~='group/button'], a[data-slot='badge'])[data-variant='destructive']:hover {
+    background-color: var(--axo-interaction-danger-hover-background);
+  }
+
+  :is([class~='group/button'], a[data-slot='badge'])[data-variant='destructive']:active {
+    background-color: var(--axo-color-danger-soft);
+  }
+
+  :is([data-slot='dropdown-menu-item'], [data-slot='context-menu-item'],
+      [data-slot='menubar-item'])[data-variant='destructive'] {
+    --destructive: var(--axo-color-danger-foreground);
+    color: var(--axo-color-danger-foreground);
+  }
+
+  :is([data-slot='dropdown-menu-item'], [data-slot='context-menu-item'],
+      [data-slot='menubar-item'])[data-variant='destructive']:focus {
+    background-color: var(--axo-color-danger-soft);
+  }
+
+  :is([data-slot='dialog-content'], [data-slot='alert-dialog-content'],
+      [data-slot='sheet-content'], [data-slot='drawer-content']) {
+    background-color: var(--axo-color-surface-overlay);
+  }
+
+  /* Avoid alpha-reduced small text; Dark already resolves to this same role. */
+  [data-slot='tabs-trigger']:not([data-state='active']):not(:hover) {
+    color: var(--axo-color-text-muted);
+  }
+
+  [data-slot='tabs-list'][data-variant='default'] [data-slot='tabs-trigger'][data-state='active'] {
+    color: var(--axo-color-text-primary);
+    background-color: var(--axo-interaction-selected-background);
+    border-color: var(--axo-color-primary-text);
+  }
+}

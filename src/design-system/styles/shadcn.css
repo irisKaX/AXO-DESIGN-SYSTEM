@@ -1,0 +1,56 @@
+/* Compatibility aliases only. AXO semantic tokens own all design values. */
+:root {
+  --background: var(--axo-color-canvas);
+  --foreground: var(--axo-color-text-primary);
+  --card: var(--axo-color-surface-elevated);
+  --card-foreground: var(--axo-color-text-primary);
+  --popover: var(--axo-color-surface-overlay);
+  --popover-foreground: var(--axo-color-text-primary);
+  --primary: var(--axo-color-primary);
+  --primary-foreground: var(--axo-color-primary-foreground);
+  /* Light secondary controls are neutral; O2 Blue remains a brand role. */
+  --secondary: var(--axo-color-surface-muted);
+  --secondary-foreground: var(--axo-color-text-primary);
+  --muted: var(--axo-color-surface-muted);
+  --muted-foreground: var(--axo-color-text-muted);
+  --accent: var(--axo-interaction-hover-background);
+  --accent-foreground: var(--axo-color-text-primary);
+  --destructive: var(--axo-state-error-color);
+  --destructive-foreground: var(--axo-color-danger-foreground);
+  --border: var(--axo-color-border);
+  --input: var(--axo-color-border-control);
+  --ring: var(--axo-interaction-focus-color);
+  --radius: var(--axo-shape-radius);
+  --sidebar: var(--axo-color-surface);
+  --sidebar-foreground: var(--axo-color-text-primary);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--axo-interaction-selected-background);
+  --sidebar-accent-foreground: var(--axo-color-text-primary);
+  --sidebar-border: var(--axo-color-border);
+  --sidebar-ring: var(--axo-interaction-focus-color);
+  /* Reserved chart roles reuse AXO status colors until charts are designed. */
+  --chart-1: var(--axo-state-info-color);
+  --chart-2: var(--axo-state-success-color);
+  --chart-3: var(--axo-state-warning-color);
+  --chart-4: var(--axo-state-error-color);
+  --chart-5: var(--axo-color-text-secondary);
+}
+
+/* Dark keeps its approved mappings, including the blue secondary action. */
+[data-axo-theme='dark'] {
+  --card: var(--axo-color-surface-elevated);
+  --popover: var(--axo-color-surface-overlay);
+  --primary: var(--axo-color-primary);
+  --primary-foreground: var(--axo-color-primary-foreground);
+  --secondary: var(--axo-color-secondary);
+  --secondary-foreground: var(--axo-color-secondary-foreground);
+  --muted-foreground: var(--axo-color-text-muted);
+  --destructive-foreground: var(--axo-color-danger-foreground);
+  /* The decorative border stays subdued; controls need a 3:1 boundary. */
+  --input: var(--axo-color-border-control);
+  --sidebar-primary: var(--axo-color-primary);
+  --sidebar-primary-foreground: var(--axo-color-primary-foreground);
+  --sidebar-accent: var(--axo-interaction-selected-background);
+  --axo-state-disabled-color: var(--axo-color-disabled-text);
+}

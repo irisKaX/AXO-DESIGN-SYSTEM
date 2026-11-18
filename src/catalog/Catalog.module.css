@@ -1,0 +1,320 @@
+.shell {
+  min-height: 100svh;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--axo-layout-gap);
+  padding: var(--axo-layout-padding);
+  border-bottom: var(--axo-shape-border-width) solid var(--axo-color-border);
+  background: var(--axo-color-surface);
+}
+
+.brand {
+  font-weight: var(--axo-type-heading-weight);
+}
+
+.caption {
+  color: var(--axo-color-text-secondary);
+  font-size: var(--axo-type-caption-size);
+}
+
+.themeControl {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--axo-layout-gap);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 14rem minmax(0, 1fr);
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: var(--axo-space-2);
+  padding: var(--axo-layout-padding);
+}
+
+.navigation a {
+  padding: var(--axo-space-2) var(--axo-space-3);
+  border-radius: var(--axo-shape-radius);
+  color: var(--axo-color-text-primary);
+  text-decoration: none;
+  transition: background-color var(--axo-effect-duration) var(--axo-effect-easing);
+}
+
+.navigation a:hover {
+  background: var(--axo-interaction-hover-background);
+}
+
+.navigation a:active {
+  background: var(--axo-interaction-pressed-background);
+}
+
+.navigation a[aria-current='page'] {
+  background: var(--axo-interaction-selected-background);
+  font-weight: var(--axo-type-heading-weight);
+}
+
+.shell :is(a, select, main):focus-visible {
+  outline: var(--axo-interaction-focus-width) solid var(--axo-interaction-focus-color);
+  outline-offset: var(--axo-interaction-focus-offset);
+}
+
+.content {
+  min-width: 0;
+  padding: var(--axo-layout-padding);
+  overflow-wrap: anywhere;
+  max-width: 100rem;
+}
+
+.content h1 {
+  margin: 0 0 var(--axo-space-6);
+  font-size: var(--axo-type-heading-size);
+  font-weight: var(--axo-type-heading-weight);
+  line-height: var(--axo-type-heading-line-height);
+}
+
+.content h2 {
+  margin: var(--axo-space-6) 0 var(--axo-space-3);
+  font-size: var(--axo-font-size-lg);
+  font-weight: var(--axo-type-heading-weight);
+}
+
+/* Explicit document-list styles preserve the catalog before Preflight. */
+.content > ul {
+  margin-block: 1em;
+  padding-inline-start: 2.5em;
+  list-style: disc outside;
+}
+
+.shell p {
+  margin: 0;
+}
+
+.content > p + p {
+  margin-top: var(--axo-space-3);
+}
+
+.tokenGroups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: var(--axo-layout-gap);
+  margin-top: var(--axo-layout-section-gap);
+}
+
+.tokenGroup {
+  padding: var(--axo-layout-padding);
+  border: var(--axo-shape-border-width) solid var(--axo-color-border);
+  border-radius: var(--axo-shape-radius);
+  background: var(--axo-color-surface);
+}
+
+.tokenGroup h2 {
+  margin-top: 0;
+}
+
+.tokenGroup ul {
+  display: grid;
+  gap: var(--axo-space-3);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.tokenGroup li {
+  display: flex;
+  align-items: center;
+  gap: var(--axo-space-2);
+  min-width: 0;
+}
+
+.tokenGroup code {
+  font-family: var(--axo-type-code-family);
+  font-size: var(--axo-type-caption-size);
+}
+
+.swatch {
+  flex: 0 0 var(--axo-space-4);
+  height: var(--axo-space-4);
+  border: var(--axo-shape-border-width) solid var(--axo-color-border);
+  border-radius: var(--axo-radius-sm);
+}
+
+.skipLink {
+  position: absolute;
+  inset-inline-start: var(--axo-space-4);
+  top: var(--axo-space-2);
+  padding: var(--axo-space-3);
+  color: var(--axo-color-text-primary);
+  background: var(--axo-color-surface);
+  text-decoration: underline;
+  transform: translateY(-200%);
+  z-index: var(--axo-elevation-toast);
+}
+
+.subnavigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--axo-space-2);
+  margin-block: var(--axo-space-4);
+}
+
+.subnavigation :is(a, button) {
+  padding: var(--axo-space-2) var(--axo-space-3);
+  border: var(--axo-shape-border-width) solid var(--axo-color-border);
+  border-radius: var(--axo-shape-radius);
+  background: var(--axo-color-surface);
+  font-size: var(--axo-type-caption-size);
+  cursor: pointer;
+}
+
+.subnavigation :is(a, button):hover,
+.subnavigation [aria-current='page'] {
+  background: var(--axo-interaction-hover-background);
+}
+
+.componentLink {
+  display: flex;
+  flex-direction: column;
+  gap: var(--axo-space-2);
+  padding: var(--axo-layout-padding);
+  border: var(--axo-shape-border-width) solid var(--axo-color-border);
+  border-radius: var(--axo-shape-radius);
+  background: var(--axo-color-surface);
+}
+
+.componentLink:hover {
+  border-color: var(--axo-color-text-secondary);
+}
+
+.componentLink :is(span, small) {
+  color: var(--axo-color-text-secondary);
+  font-size: var(--axo-type-caption-size);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--axo-space-4);
+  margin-block: var(--axo-space-4);
+}
+
+.controls label {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--axo-space-2);
+}
+
+.preview,
+.playgroundItem {
+  min-width: 0;
+  border: var(--axo-shape-border-width) solid var(--axo-color-border);
+  border-radius: var(--axo-shape-radius);
+  padding: var(--axo-layout-padding);
+  background: var(--axo-color-surface);
+}
+
+.preview {
+  margin-block: var(--axo-space-4);
+}
+
+/* Presentation widths apply only to individual catalog demos, never patterns. */
+.previewDemo {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.previewDemo[data-width='content'] {
+  width: fit-content;
+}
+
+.previewDemo[data-width='field'] {
+  width: 20rem;
+}
+
+.previewDemo[data-width='full'] {
+  width: 100%;
+}
+
+/* Neutralize a demo Stack's stretch without changing buttons or compound groups. */
+.previewDemo[data-width='content'] > :where(:not([data-slot])) > [data-slot='button'] {
+  align-self: flex-start;
+}
+
+.previewDemo[data-width='field'] :where([data-slot='select-trigger'], [data-slot='native-select-wrapper']),
+.previewDemo[data-width='field'] > [data-slot='button'] {
+  width: 100%;
+}
+
+.sidebarPreview {
+  position: relative;
+  overflow: hidden;
+  border: var(--axo-shape-border-width) solid var(--axo-color-border);
+  border-radius: var(--axo-shape-radius);
+}
+
+/* Constrain the real Sidebar to its catalog preview; mobile still uses Sheet. */
+.sidebarPreview :global([data-slot='sidebar-container']) {
+  position: absolute;
+  height: 100%;
+}
+
+.documentList {
+  list-style: disc outside;
+  padding-inline-start: var(--axo-space-6);
+}
+
+.documentList li + li {
+  margin-top: var(--axo-space-2);
+}
+
+.code {
+  max-width: 100%;
+  overflow-x: auto;
+  margin-block: var(--axo-space-4);
+  padding: var(--axo-layout-padding);
+  border-radius: var(--axo-shape-radius);
+  background: var(--axo-color-surface-muted);
+  font-family: var(--axo-type-code-family);
+  font-size: var(--axo-type-caption-size);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.tokenRow {
+  flex-wrap: wrap;
+}
+
+.tokenRow output {
+  margin-inline-start: auto;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  color: var(--axo-color-text-secondary);
+  font-family: var(--axo-type-code-family);
+  font-size: var(--axo-type-caption-size);
+}
+
+.skipLink:focus {
+  transform: translateY(0);
+}
+
+@media (max-width: 48rem) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .navigation {
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-bottom: var(--axo-shape-border-width) solid var(--axo-color-border);
+  }
+}

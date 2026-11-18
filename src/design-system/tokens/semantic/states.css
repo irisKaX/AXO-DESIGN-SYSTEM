@@ -1,0 +1,17 @@
+:root {
+  --axo-state-success-color: var(--axo-color-success);
+  --axo-state-warning-color: var(--axo-color-warning);
+  --axo-state-error-color: var(--axo-color-danger);
+  --axo-state-info-color: var(--axo-color-info);
+  --axo-state-loading-color: var(--axo-color-text-secondary);
+  --axo-state-disabled-color: var(--axo-color-text-secondary);
+}
+
+/* Light text/validation uses contrast-safe roles, never a bright accent alone. */
+:root:not([data-axo-theme='dark']) {
+  --axo-state-success-color: var(--axo-color-success-foreground);
+  --axo-state-warning-color: var(--axo-color-warning-foreground);
+  --axo-state-error-color: var(--axo-color-danger-text);
+  --axo-state-info-color: var(--axo-color-info-foreground);
+  --axo-state-disabled-color: var(--axo-color-disabled-text);
+}

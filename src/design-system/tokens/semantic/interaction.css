@@ -1,0 +1,16 @@
+:root {
+  --axo-interaction-hover-background: var(--axo-color-interactive-hover);
+  --axo-interaction-pressed-background: var(--axo-color-interactive-pressed);
+  --axo-interaction-selected-background: var(--axo-color-interactive-selected);
+  --axo-interaction-focus-color: var(--axo-color-focus);
+  --axo-interaction-focus-width: var(--axo-border-width-2);
+  --axo-interaction-focus-offset: var(--axo-border-width-1);
+  --axo-interaction-secondary-hover-background: var(--axo-color-interactive-pressed);
+  --axo-interaction-danger-hover-background: var(--axo-red-300);
+  --axo-interaction-disabled-opacity: var(--axo-opacity-disabled);
+}
+
+[data-axo-theme='dark'] {
+  --axo-interaction-secondary-hover-background: var(--axo-color-secondary-hover);
+  --axo-interaction-danger-hover-background: var(--axo-color-danger-border);
+}

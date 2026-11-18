@@ -1,0 +1,17 @@
+:root {
+  --axo-effect-shadow-raised: var(--axo-shadow-sm);
+  --axo-effect-shadow-overlay: var(--axo-shadow-md);
+  --axo-effect-duration: var(--axo-duration-fast);
+  --axo-effect-easing: var(--axo-easing-standard);
+  --axo-effect-gradient-intensity-duration: var(--axo-duration-normal);
+  --axo-effect-orbital-duration: 3000ms;
+  --axo-effect-orbital-blur: var(--axo-border-width-1);
+  --axo-effect-orbital-opacity: 0.6;
+  --axo-effect-orbital-hover-opacity: 0.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --axo-effect-duration: var(--axo-duration-instant);
+  }
+}

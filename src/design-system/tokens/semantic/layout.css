@@ -1,0 +1,16 @@
+:root {
+  --axo-layout-gap: var(--axo-space-4);
+  --axo-layout-padding: var(--axo-space-6);
+  --axo-layout-section-gap: var(--axo-space-8);
+  --axo-shape-radius: var(--axo-radius-md);
+  --axo-shape-border-width: var(--axo-border-width-1);
+  --axo-type-body-family: var(--axo-font-sans);
+  --axo-type-code-family: var(--axo-font-mono);
+  --axo-type-body-size: var(--axo-font-size-md);
+  --axo-type-caption-size: var(--axo-font-size-sm);
+  --axo-type-heading-size: var(--axo-font-size-xl);
+  --axo-type-body-weight: var(--axo-font-weight-regular);
+  --axo-type-heading-weight: var(--axo-font-weight-semibold);
+  --axo-type-body-line-height: var(--axo-line-height-normal);
+  --axo-type-heading-line-height: var(--axo-line-height-tight);
+}

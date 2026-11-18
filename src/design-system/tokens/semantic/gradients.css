@@ -1,0 +1,4 @@
+:root {
+  --axo-gradient-signature: linear-gradient(90deg in srgb, var(--axo-signature-start) 0%, var(--axo-signature-middle) 50%, var(--axo-signature-end) 100%);
+  --axo-gradient-orbital-stops: transparent 0deg 270deg, var(--axo-signature-start) 300deg, var(--axo-signature-middle) 325deg, var(--axo-signature-end) 345deg, transparent 360deg;
+}

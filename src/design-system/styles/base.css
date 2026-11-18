@@ -1,0 +1,23 @@
+/* Opt-in foundation: no application layout or global element reset. */
+.axo-root {
+  color: var(--axo-color-text-primary);
+  background-color: var(--axo-color-canvas);
+  font-family: var(--axo-type-body-family);
+  font-size: var(--axo-type-body-size);
+  font-weight: var(--axo-type-body-weight);
+  line-height: var(--axo-type-body-line-height);
+}
+
+/* Shared state and accessibility behavior, including non-catalog consumers. */
+[data-status='success']:not([aria-invalid='true']) {
+  border-color: var(--axo-state-success-color);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: var(--axo-duration-instant) !important;
+    scroll-behavior: auto !important;
+  }
+}

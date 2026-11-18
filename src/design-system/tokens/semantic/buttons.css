@@ -1,0 +1,12 @@
+:root {
+  --axo-button-secondary-background: var(--axo-color-surface);
+  --axo-button-secondary-border: var(--axo-color-primary);
+  --axo-button-secondary-foreground: var(--axo-color-text-primary);
+  --axo-button-secondary-hover-background: var(--axo-color-interactive-hover);
+  --axo-button-secondary-pressed-background: var(--axo-color-interactive-pressed);
+  --axo-button-signature-foreground: var(--axo-color-primary-foreground);
+  --axo-button-signature-overlay-color: var(--axo-neutral-950);
+  --axo-button-signature-overlay-opacity: 0.22;
+  --axo-button-signature-hover-overlay-opacity: 0.21;
+  --axo-button-signature-pressed-overlay-opacity: 0.28;
+}

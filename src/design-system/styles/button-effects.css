@@ -1,0 +1,97 @@
+/* Positioning defaults remain overridable by consumer utilities/className. */
+@layer components {
+  .axo-signature,
+  .axo-orbital-border {
+    position: relative;
+    isolation: isolate;
+  }
+}
+
+@property --axo-signature-overlay {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 0.22;
+}
+
+/* Animate only the uniform scrim. Stops never move, and the host background
+   also protects replaced asChild inputs without relying on pseudo-elements. */
+.axo-signature {
+  --axo-signature-overlay: var(--axo-button-signature-overlay-opacity);
+  --axo-signature-contrast-layer: linear-gradient(
+    color-mix(in srgb, var(--axo-button-signature-overlay-color) calc(var(--axo-signature-overlay) * 100%), transparent),
+    color-mix(in srgb, var(--axo-button-signature-overlay-color) calc(var(--axo-signature-overlay) * 100%), transparent)
+  );
+  background-image: var(--axo-signature-contrast-layer), var(--axo-gradient-signature);
+}
+
+@media (hover: hover) {
+  .axo-signature:not(:disabled):not([aria-disabled='true']):hover {
+    --axo-signature-overlay: var(--axo-button-signature-hover-overlay-opacity);
+  }
+}
+
+.axo-signature:not(:disabled):not([aria-disabled='true']):active {
+  --axo-signature-overlay: var(--axo-button-signature-pressed-overlay-opacity);
+}
+
+.axo-gradient-border:not(:disabled):not([aria-disabled='true']):active {
+  --axo-orbital-surface: var(--axo-color-surface-inset);
+}
+
+/* Reusable on non-replaced hosts (a future Card or Input wrapper). It never
+   changes radius/border width or clips content and the keyboard outline. */
+.axo-orbital-border {
+  border-color: transparent;
+  background: linear-gradient(var(--axo-orbital-surface, var(--axo-color-surface)), var(--axo-orbital-surface, var(--axo-color-surface))) padding-box,
+    var(--axo-gradient-signature) border-box;
+}
+
+@property --axo-orbit-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes axo-orbital-turn {
+  from { --axo-orbit-angle: 0deg; }
+  to { --axo-orbit-angle: 360deg; }
+}
+
+@supports (mask-composite: exclude) {
+  .axo-orbital-border::after {
+    content: '';
+    position: absolute;
+    inset: calc(-1 * var(--axo-border-width-1));
+    padding: calc(2 * var(--axo-border-width-1));
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: -1;
+    background-image: conic-gradient(from var(--axo-orbit-angle), var(--axo-gradient-orbital-stops));
+    mask: linear-gradient(black, black) content-box, linear-gradient(black, black);
+    mask-composite: exclude;
+    filter: blur(var(--axo-effect-orbital-blur));
+    opacity: var(--axo-effect-orbital-opacity);
+    animation: axo-orbital-turn var(--axo-effect-orbital-duration) linear infinite;
+    transition: opacity var(--axo-effect-duration) var(--axo-effect-easing);
+  }
+
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .axo-orbital-border:not(:disabled):not([aria-disabled='true']):not(:focus-visible):not(:has(:focus-visible)):hover::after {
+      opacity: var(--axo-effect-orbital-hover-opacity);
+    }
+  }
+
+  .axo-orbital-border:is(:focus-visible, :has(:focus-visible), :disabled, [aria-disabled='true'])::after {
+    animation-play-state: paused;
+    opacity: 0;
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .axo-orbital-border::after {
+    animation: none;
+    opacity: 0;
+    content: none;
+  }
+}
